@@ -1,0 +1,33 @@
+.services {
+  padding: 4rem 1rem;
+  background-color: rgba(255,255,255,0.04);
+  backdrop-filter: blur(3px);
+  color: #fff;
+  text-align: center;
+}
+
+.services__container {
+  max-width: 968px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.services__content {
+  background-color: rgba(255,255,255,0.03);
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+.services__title {
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.services__description {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+}

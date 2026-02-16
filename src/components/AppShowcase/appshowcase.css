@@ -1,0 +1,422 @@
+.appshowcase {
+  padding: 1rem 1rem;
+  background-color: rgba(255, 255, 255, 0.06); /* see-through so particles are visible */
+  backdrop-filter: blur(3px); /* subtle blur for readability */
+  text-align: center;
+}
+
+.section__title {
+  margin-bottom: 4rem;
+}
+
+.appshowcase__container {
+  max-width: 968px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* moved from JSX */
+.appshowcase__card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  min-height: 420px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.appshowcase__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: contrast(0.9);
+  transform: scale(1.02);
+  will-change: transform;
+  transition: transform 0.3s ease;
+}
+
+.appshowcase__card:hover .appshowcase__bg {
+  transform: scale(1.08);
+}
+
+.appshowcase__title {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  margin: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.05;
+  max-width: 70%;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  text-align: left;
+  z-index: 2;
+  transition: bottom 0.3s ease;
+}
+
+.appshowcase__card:hover .appshowcase__title {
+  bottom: 5rem;
+}
+
+.appshowcase__hoverButtons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 3;
+}
+
+.appshowcase__card:hover .appshowcase__hoverButtons {
+  transform: translateY(0);
+}
+
+.appshowcase__btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.appshowcase__btnStory {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.appshowcase__btnStory:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.appshowcase__btnScreenshots {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.appshowcase__btnScreenshots:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Modal styles */
+.appshowcase__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  /* padding: 2rem; */
+}
+
+.appshowcase__modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 92vh;
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.appshowcase__close {
+  position: absolute;
+  right: 1rem;
+  top: 0.75rem;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  z-index: 10;
+}
+
+.appshowcase__modalTitle {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.appshowcase__storyContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+}
+
+/* custom scrollbar */
+.appshowcase__storyContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.appshowcase__storyContainer::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+
+.appshowcase__storyContainer::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+}
+
+.appshowcase__storyContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.appshowcase__storySection {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.appshowcase__storyImages {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.appshowcase__storyImage {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  object-fit: cover;
+}
+
+.appshowcase__storyText {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.appshowcase__storyText p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  font-weight: 400;
+}
+
+.appshowcase__detailsModal {
+  max-height: 80vh;
+}
+
+.appshowcase__screenshotNote {
+  background: rgba(30, 144, 255, 0.08);
+  border-left: 3px solid #1e90ff;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.appshowcase__screenshotNote p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+}
+
+.appshowcase__detailsContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+}
+
+.appshowcase__detailSection {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.appshowcase__detailSection h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e90ff;
+  margin: 0 0 0.75rem 0;
+}
+
+.appshowcase__detailSection p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.appshowcase__screenshotModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  max-height: 90vh;
+}
+
+.appshowcase__screenshotBody {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+.appshowcase__imageWrap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  max-height: 82vh;
+  overflow: hidden;
+}
+
+.appshowcase__modalImage {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  background: #000;
+}
+
+.appshowcase__screenshotCounter {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.appshowcase__thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 110px;
+  max-height: 78vh;
+  overflow-y: auto;
+  padding: 0.5rem;
+  justify-content: flex-start;
+}
+
+.appshowcase__thumbnail {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/5;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.appshowcase__thumbnail:hover {
+  opacity: 0.8;
+}
+
+.appshowcase__thumbnail.active {
+  opacity: 1;
+  border-color: #1e90ff;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .appshowcase__modalContent {
+    max-height: 90vh;
+    max-width: 95vw;
+    padding: 1rem;
+  }
+
+  .appshowcase__storySection {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .appshowcase__storyImages {
+    flex: 1 1 100%;
+  }
+
+  .appshowcase__storyImage {
+    max-width: 100%;
+  }
+}
+
+.appshowcase__detailImage.right {
+  order: 1;
+}
+
+.appshowcase__detailImage.left {
+  order: 0;
+}
+
+/* new: detail row layout with left/right placeholders */
+.appshowcase__detailRow {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.appshowcase__detailText {
+  flex: 1;
+}
+
+.appshowcase__detailText h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+  color: #1e90ff;
+}
+
+.appshowcase__detailImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+  background: #000;
+}
+
+/* responsive: stacked rows on small screens */
+@media (max-width: 640px) {
+  .appshowcase__detailRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .appshowcase__detailImage {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+/* screenshots modal: two-column layout */
+.appshowcase__screenshotLayout {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  width: 100%;
+}
