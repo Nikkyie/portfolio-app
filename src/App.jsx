@@ -13,11 +13,7 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop.jsx';
 import ParticlesComponent from './components/particles.jsx';
 import placeholderImg from './assets/app_showcase_ss/fraikin/fraikin_logo.png';
 
-import ReactGA from 'react-ga4';
-
 const App = () => {
-	ReactGA.initialize('G-T2QF4Z4DWZ');
-	ReactGA.send({ hitType: "pageview", page: "/home", title: "Portfolio Viewed" });
 
 	const [modalOpen, setModalOpen] = useState(false);
 	const [modalMode, setModalMode] = useState('story'); // 'story', 'screenshots', 'details'
