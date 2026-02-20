@@ -420,3 +420,11 @@
   align-items: stretch;
   width: 100%;
 }
+
+/* Mobile responsive for screenshots modal */
+@media (max-width: 768px) {
+  /* Hide prev/next buttons on mobile */
+  .appshowcase__nav {
+    display: none;
+  }
+}
