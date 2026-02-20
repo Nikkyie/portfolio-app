@@ -9,6 +9,8 @@ lerna-debug.log*
 
 node_modules
 dist-ssr
+#config
+vite.config.js
 *.local
 
 # Editor directories and files
@@ -21,3 +23,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
